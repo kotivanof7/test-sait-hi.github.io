@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Випадаюче меню</title>
+    <style>
+        body {
+            background-color: black;
+            color: blue;
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            height: 100vh;
+        }
+        .container {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+        }
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: black;
+            min-width: 160px;
+            box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+            z-index: 1;
+        }
+        .dropdown-content a {
+            color: blue;
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block;
+        }
+        .dropdown-content a:hover {
+            background-color: #575757;
+        }
+        .show {
+            display: block;
+        }
+        button {
+            background-color: blue;
+            color: black;
+            border: none;
+            padding: 10px 20px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        button:hover {
+            background-color: #575757;
+        }
+        .text-section {
+            max-width: 100%; /* Визначаємо максимальну ширину тексту */
+            margin: 0 auto; /* Центруємо блок тексту */
+            padding: 20px; /* Додаємо внутрішні відступи */
+            text-align: left; /* Вирівнюємо текст вліво */
+            display: flex; /* Використовуємо flexbox для розподілення елементів */
+            justify-content: space-between; /* Розміщуємо елементи з пробілами між ними */
+            align-items: flex-start; /* Вирівнюємо елементи по верхньому краю */
+        }
+        .text-section p {
+            line-height: 1.6;
+        }
+        .text-section img {
+            max-width: 40%; /* Встановлюємо максимальну ширину картинки */
+            height: auto; /* Підтримуємо пропорційні розміри картинки */
+        }
+        .bottom-image-container {
+            width: 100%;
+            display: flex;
+            justify-content: center;
+        }
+        .bottom-image {
+            width: 100%;
+            max-height: 200px;
+            object-fit: cover;
+        }
+    </style>
+</head>
+<body>
+    <h1>Ласкаво просимо на наш сайт!</h1>
+    <div class="text-section">
+        <div>
+            <p>Цей сайт демонструє корисну інформацію про такий бренд як Manto.</p>
+            <p>ФК "Дельфін" (ісп. Delfín Sporting Club) – еквадорський футбольний клуб з міста Манта, третього за величиною міста Еквадору. Заснований у 1989 році, "Дельфін" за свою історію став одним із лідерів еквадорського футболу, завоювавши безліч трофеїв і завоювавши любов вболівальників.</p>
+            <p><strong>Досягнення:</strong></p>
+            <ul>
+                <li>Чемпіон Еквадору: 1 раз (2019)</li>
+                <li>Віце-чемпіон Еквадору: 4 рази (2017, 2018, 2020, 2021)</li>
+                <li>Володар Суперкубка Еквадору: 1 раз (2019)</li>
+                <li>Переможець Серії B: 2 рази (2000, 2014)</li>
+            </ul>
+            <p>У складі "Дельфіна" виступають як досвідчені еквадорські футболісти, так і легіонери з Південної Америки. Серед лідерів команди можна виділити:
+Джонні Дельгадо: капітан команди, досвідчений захисник, виступав за збірну Еквадору
+Армандо Ортіс: півзахисник, найкращий бомбардир команди у 2023 році
+Джордан Авіла: нападник, один з лідерів атаки команди </p>
+        </div>
+        <img src="https://w0.peakpx.com/wallpaper/57/432/HD-wallpaper-delfin-sc-ecuadorian-football-club-silk-texture-logo-blue-yellow-flag-emblem-ecuadorian-serie-a-manta-ecuador-football-primera-a.jpg" alt="ФК Дельфін">
+    </div>
+    <div class="container">
+        <button onclick="toggleDropdown()">Більше</button>
+        <div id="myDropdown" class="dropdown-content">
+            <a href="https://soccer365.ru/clubs/11687/">Официальний сайт</a>
+            <a href="https://soccer365.ru/online/">Матчи</a>
+            <a href="https://soccer-shop.com.ua/c1-futbolnaya_forma">Форма</a>
+            <a href="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT1fqEIY0GiKNXsBU49Jx5hVuQI_OOZtp_GNA&s">Футбольне поле</a>
+        </div>
+    </div>
+    <div class="bottom-image-container">
+        <img src="https://cdn.dribbble.com/users/1770290/screenshots/6158205/bg_75.gif" alt="Футбол" class="bottom-image">
+    </div>
+    <script>
+        function toggleDropdown() {
+            document.getElementById("myDropdown").classList.toggle("show");
+        }
+
+        window.onclick = function(event) {
+            if (!event.target.matches('.container button')) {
+                var dropdowns = document.getElementsByClassName("dropdown-content");
+                for (var i = 0; i < dropdowns.length; i++) {
+                    var openDropdown = dropdowns[i];
+                    if (openDropdown.classList.contains('show')) {
+                        openDropdown.classList.remove('show');
+                    }
+                }
+            }
+        }
+    </script>
+</body>
+</html>
